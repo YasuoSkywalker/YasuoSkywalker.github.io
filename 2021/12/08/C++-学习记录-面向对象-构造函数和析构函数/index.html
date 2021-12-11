@@ -7,7 +7,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://c1.im5i.com/2021/11/17/JePTl.png">
 <meta property="article:published_time" content="2021-12-08T08:36:01.000Z">
-<meta property="article:modified_time" content="2021-12-08T09:15:22.295Z">
+<meta property="article:modified_time" content="2021-12-11T02:34:42.326Z">
 <meta property="article:author" content="星辰微光">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://c1.im5i.com/2021/11/17/JePTl.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2021/12/08/C++-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E5%92%8C%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
@@ -57,7 +57,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2021-12-08 17:15:22'
+  postUpdate: '2021-12-11 10:34:42'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -146,7 +146,7 @@
       }
     }
     detectApple()
-    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://ss.im5i.com/2021/11/09/JB0jw.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">21</div></a></div></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://c1.im5i.com/2021/11/17/JePTl.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">星辰微光的博客</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">C++学习记录-面向对象:构造函数和析构函数</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-12-08T08:36:01.000Z" title="发表于 2021-12-08 16:36:01">2021-12-08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-12-08T09:15:22.295Z" title="更新于 2021-12-08 17:15:22">2021-12-08</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="C++学习记录-面向对象:构造函数和析构函数"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><strong>C++-学习记录-面向对象-构造函数和析构函数</strong></p>
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://ss.im5i.com/2021/11/09/JB0jw.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">21</div></a></div></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://c1.im5i.com/2021/11/17/JePTl.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">星辰微光的博客</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">C++学习记录-面向对象:构造函数和析构函数</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-12-08T08:36:01.000Z" title="发表于 2021-12-08 16:36:01">2021-12-08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-12-11T02:34:42.326Z" title="更新于 2021-12-11 10:34:42">2021-12-11</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="C++学习记录-面向对象:构造函数和析构函数"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><strong>C++-学习记录-面向对象-构造函数和析构函数</strong></p>
 <p><strong>0.重要性</strong></p>
 <p>对象的初始化和清理十分重要。如果对象没有初始化，使用的后果是未知。如果对象没有及时清理也会有问题。C++使用了<strong>构造函数</strong>和<strong>析构函数</strong>来解决这个问题。</p>
 <p>构造函数和析构函数由编译器调用，<strong>不可手动调用。</strong></p>
@@ -181,8 +181,9 @@
 
 <p>在main函数中调用对象结束后，程序先执行了system(“pause”)</p>
 <p><strong>一些冷知识</strong></p>
-<p>1.类中的构造函数和析构函数可以在类内声明，写在类外，注意访问权限不能为private，protected</p>
+<p>1.类中的构造函数和析构函数可以在类内声明，写在类外，<del>注意访问权限不能为private，protected</del><strong>访问权限不影响类外实现</strong></p>
 <p>2.类外实现语法：   类名：：构造/析构函数名(){ }</p>
+<p>3.<strong>析构函数尽量写为public</strong></p>
 <p><strong>示例：</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">charactor</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	string name;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">charactor</span>(string n);</span><br><span class="line">	~<span class="built_in">charactor</span>();</span><br><span class="line">&#125;;</span><br><span class="line">charactor::<span class="built_in">charactor</span>(string n) &#123; name = n; &#125;</span><br><span class="line">charactor::~<span class="built_in">charactor</span>()&#123; cout &lt;&lt; <span class="string">&quot;析构函数被调用&quot;</span> &lt;&lt; endl; &#125;</span><br></pre></td></tr></table></figure>
 
