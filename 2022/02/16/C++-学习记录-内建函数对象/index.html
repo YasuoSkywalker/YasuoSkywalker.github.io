@@ -1,0 +1,203 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>C++学习记录-内建函数对象 | 星辰微光的博客</title><meta name="keywords" content="C++"><meta name="author" content="星辰微光"><meta name="copyright" content="星辰微光"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="C++学习记录-内建函数对象 概念：  STL内建了一些函数对象  分类：  算术仿函数 关系仿函数 逻辑仿函数  用法：  这些仿函数所产生的对象，用法和一般函数完全相同  使用内建函数对象，需要引入头文件 1#include&lt;functional&gt;  算数仿函数  功能描述：  ​       实现四则运算​       其中negate是一元运算，其余的都是二元运算  函数： 返">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++学习记录-内建函数对象">
+<meta property="og:url" content="http://example.com/2022/02/16/C++-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E5%86%85%E5%BB%BA%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1/index.html">
+<meta property="og:site_name" content="星辰微光的博客">
+<meta property="og:description" content="C++学习记录-内建函数对象 概念：  STL内建了一些函数对象  分类：  算术仿函数 关系仿函数 逻辑仿函数  用法：  这些仿函数所产生的对象，用法和一般函数完全相同  使用内建函数对象，需要引入头文件 1#include&lt;functional&gt;  算数仿函数  功能描述：  ​       实现四则运算​       其中negate是一元运算，其余的都是二元运算  函数： 返">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png">
+<meta property="article:published_time" content="2022-02-16T09:56:46.000Z">
+<meta property="article:modified_time" content="2022-02-16T10:35:12.580Z">
+<meta property="article:author" content="星辰微光">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2022/02/16/C++-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E5%86%85%E5%BB%BA%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'C++学习记录-内建函数对象',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2022-02-16 18:35:12'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://img.gejiba.com/images/a097a8cf503f870e9aad51dc0dff96b7.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">68</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a></div></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">星辰微光的博客</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">C++学习记录-内建函数对象</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-02-16T09:56:46.000Z" title="发表于 2022-02-16 17:56:46">2022-02-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-02-16T10:35:12.580Z" title="更新于 2022-02-16 18:35:12">2022-02-16</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="C++学习记录-内建函数对象"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><strong>C++学习记录-内建函数对象</strong></p>
+<p>概念：</p>
+<ul>
+<li>STL内建了一些函数对象</li>
+</ul>
+<p>分类：</p>
+<ul>
+<li>算术仿函数</li>
+<li>关系仿函数</li>
+<li>逻辑仿函数</li>
+</ul>
+<p>用法：</p>
+<ul>
+<li><p>这些仿函数所产生的对象，用法和一般函数完全相同</p>
+</li>
+<li><p>使用内建函数对象，需要引入头文件</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;functional&gt;</span></span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>算数仿函数</strong></p>
+<ul>
+<li>功能描述：</li>
+</ul>
+<p>​       实现四则运算<br>​       其中negate是一元运算，其余的都是二元运算</p>
+<ul>
+<li><p>函数：</p>
+<p>返回类型即&lt;&gt;中定义的类型<br>T plus＜T＞     //加法仿函数<br>T minus＜T＞     //减法仿函数<br>T multiplies＜T＞     //乘法仿函数<br>T divides＜T＞     //除法仿函数<br>T modulus＜T＞     //取模仿函数<br>T negate＜T＞     //取相反数仿函数</p>
+</li>
+<li><p><strong>示例</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;functional&gt;</span><span class="comment">//记得引入头文件</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	negate&lt;<span class="keyword">int</span>&gt; n;</span><br><span class="line">	cout &lt;&lt; <span class="built_in">n</span>(<span class="number">50</span>) &lt;&lt; endl;<span class="comment">//输出-50</span></span><br><span class="line"></span><br><span class="line">	plus&lt;<span class="keyword">int</span>&gt; p;</span><br><span class="line">	cout &lt;&lt; <span class="built_in">p</span>(<span class="number">10</span>,<span class="number">20</span>) &lt;&lt; endl;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">test1</span>();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>逻辑仿函数</strong></p>
+<ul>
+<li><p>函数：</p>
+<ul>
+<li>bool logical_and＜T＞     //逻辑与</li>
+<li>bool logical_or＜T＞     //逻辑或</li>
+<li>bool logical_not＜T＞     //逻辑非</li>
+</ul>
+</li>
+<li><p><strong>示例</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//取非运算</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;functional&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	vector&lt;<span class="keyword">bool</span>&gt; v;</span><br><span class="line">	v.<span class="built_in">push_back</span>(<span class="literal">false</span>);</span><br><span class="line">	v.<span class="built_in">push_back</span>(<span class="literal">true</span>);</span><br><span class="line">	v.<span class="built_in">push_back</span>(<span class="literal">false</span>);</span><br><span class="line">	v.<span class="built_in">push_back</span>(<span class="literal">false</span>);</span><br><span class="line">	v.<span class="built_in">push_back</span>(<span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (vector&lt;<span class="keyword">bool</span>&gt;::iterator it = v.<span class="built_in">begin</span>(); it != v.<span class="built_in">end</span>(); it++)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; *it &lt;&lt; <span class="string">&quot;  &quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; endl;</span><br><span class="line">	</span><br><span class="line">	vector&lt;<span class="keyword">bool</span>&gt; va;</span><br><span class="line">	va.<span class="built_in">resize</span>(v.<span class="built_in">size</span>());<span class="comment">//记得给空的vector空间，否则下面的transform会报错</span></span><br><span class="line">    </span><br><span class="line">	<span class="built_in">transform</span>(v.<span class="built_in">begin</span>(),v.<span class="built_in">end</span>(),va.<span class="built_in">begin</span>(),logical_not&lt;<span class="keyword">bool</span>&gt;());</span><br><span class="line">    <span class="comment">//搬运算法，将一个vector的元素搬运到另一个vector中</span></span><br><span class="line">    </span><br><span class="line">	<span class="keyword">for</span> (vector&lt;<span class="keyword">bool</span>&gt;::iterator it = va.<span class="built_in">begin</span>(); it != va.<span class="built_in">end</span>(); it++)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; *it &lt;&lt; <span class="string">&quot;  &quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*-----------------------------------------------*/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	logical_not&lt;<span class="keyword">bool</span>&gt; ln;</span><br><span class="line">	cout &lt;&lt; <span class="built_in">ln</span>(<span class="literal">false</span>) &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">test1</span>();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>关系仿函数</strong></p>
+<ul>
+<li><p>关系仿函数</p>
+<p>返回的是bool类型</p>
+</li>
+<li><p>函数</p>
+<p>bool equal_to＜T＞     //等于<br>bool not_equal_to＜T＞     //不等于<br>bool greater＜T＞     //大于<br>bool greater_equal＜T＞     //大于等于<br>bool less＜T＞     //小于<br>bool less_equal＜T＞     //小于等于</p>
+</li>
+<li><p><strong>示例</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使vector降序排列</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;functional&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	vector&lt;<span class="keyword">int</span>&gt; v;</span><br><span class="line">	v.<span class="built_in">push_back</span>(<span class="number">30</span>);</span><br><span class="line">	v.<span class="built_in">push_back</span>(<span class="number">60</span>);</span><br><span class="line">	v.<span class="built_in">push_back</span>(<span class="number">20</span>);</span><br><span class="line">	v.<span class="built_in">push_back</span>(<span class="number">40</span>);</span><br><span class="line">	v.<span class="built_in">push_back</span>(<span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">sort</span>(v.<span class="built_in">begin</span>(), v.<span class="built_in">end</span>());</span><br><span class="line">	<span class="keyword">for</span> (vector&lt;<span class="keyword">int</span>&gt;::iterator it = v.<span class="built_in">begin</span>(); it != v.<span class="built_in">end</span>(); it++)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; *it &lt;&lt; <span class="string">&quot;  &quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; endl;</span><br><span class="line">    </span><br><span class="line">	<span class="built_in">sort</span>(v.<span class="built_in">begin</span>(), v.<span class="built_in">end</span>(), greater&lt;<span class="keyword">int</span>&gt;());<span class="comment">//降序排序</span></span><br><span class="line">    </span><br><span class="line">	<span class="keyword">for</span> (vector&lt;<span class="keyword">int</span>&gt;::iterator it = v.<span class="built_in">begin</span>(); it != v.<span class="built_in">end</span>(); it++)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; *it &lt;&lt; <span class="string">&quot;  &quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">test1</span>();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">星辰微光</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2022/02/16/C++-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E5%86%85%E5%BB%BA%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1/">http://example.com/2022/02/16/C++-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E5%86%85%E5%BB%BA%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">星辰微光的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/C/">C++</a></div><div class="post_share"><div class="social-share" data-image="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2022/02/16/C++-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E8%B0%93%E8%AF%8D/"><img class="next-cover" src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">C++学习记录-谓词</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/01/22/C++-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-STL-stack/" title="C++学习记录-STL-stack"><img class="cover" src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-01-22</div><div class="title">C++学习记录-STL-stack</div></div></a></div><div><a href="/2021/12/12/C++-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-STL-vector/" title="C++学习记录-vector"><img class="cover" src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-12</div><div class="title">C++学习记录-vector</div></div></a></div><div><a href="/2022/01/19/C++-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-STL1-STL%E5%88%9D%E8%AF%86/" title="C++学习记录-STL1-STL初识"><img class="cover" src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-01-19</div><div class="title">C++学习记录-STL1-STL初识</div></div></a></div><div><a href="/2022/01/20/C++-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-STL-string/" title="C++学习记录-STL-string"><img class="cover" src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-01-20</div><div class="title">C++学习记录-STL-string</div></div></a></div><div><a href="/2021/11/16/C++-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E5%87%BD%E6%95%B0%E5%88%86%E6%96%87%E4%BB%B6%E7%9A%84%E7%BC%96%E5%86%99/" title="C++学习记录-函数分文件的编写"><img class="cover" src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-11-16</div><div class="title">C++学习记录-函数分文件的编写</div></div></a></div><div><a href="/2022/01/22/C++-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-STL-Deque/" title="C++学习记录-STL-Deque"><img class="cover" src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-01-22</div><div class="title">C++学习记录-STL-Deque</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://img.gejiba.com/images/a097a8cf503f870e9aad51dc0dff96b7.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">星辰微光</div><div class="author-info__description">星辰微光</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">68</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/02/16/C++-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E5%86%85%E5%BB%BA%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1/" title="C++学习记录-内建函数对象"><img src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C++学习记录-内建函数对象"/></a><div class="content"><a class="title" href="/2022/02/16/C++-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E5%86%85%E5%BB%BA%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1/" title="C++学习记录-内建函数对象">C++学习记录-内建函数对象</a><time datetime="2022-02-16T09:56:46.000Z" title="发表于 2022-02-16 17:56:46">2022-02-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/02/16/C++-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E8%B0%93%E8%AF%8D/" title="C++学习记录-谓词"><img src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C++学习记录-谓词"/></a><div class="content"><a class="title" href="/2022/02/16/C++-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E8%B0%93%E8%AF%8D/" title="C++学习记录-谓词">C++学习记录-谓词</a><time datetime="2022-02-16T09:56:15.000Z" title="发表于 2022-02-16 17:56:15">2022-02-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/02/16/C++-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1/" title="C++学习记录-函数对象"><img src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C++学习记录-函数对象"/></a><div class="content"><a class="title" href="/2022/02/16/C++-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E5%87%BD%E6%95%B0%E5%AF%B9%E8%B1%A1/" title="C++学习记录-函数对象">C++学习记录-函数对象</a><time datetime="2022-02-16T08:12:25.000Z" title="发表于 2022-02-16 16:12:25">2022-02-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/02/14/Java%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-Arraylist/" title="Java学习记录-ArrayList"><img src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java学习记录-ArrayList"/></a><div class="content"><a class="title" href="/2022/02/14/Java%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-Arraylist/" title="Java学习记录-ArrayList">Java学习记录-ArrayList</a><time datetime="2022-02-14T02:53:37.000Z" title="发表于 2022-02-14 10:53:37">2022-02-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/02/13/Java%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-String%E5%92%8CStringBuilder/" title="Java学习记录-String和StringBuilder"><img src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java学习记录-String和StringBuilder"/></a><div class="content"><a class="title" href="/2022/02/13/Java%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-String%E5%92%8CStringBuilder/" title="Java学习记录-String和StringBuilder">Java学习记录-String和StringBuilder</a><time datetime="2022-02-13T15:02:43.000Z" title="发表于 2022-02-13 23:02:43">2022-02-13</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By 星辰微光</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
