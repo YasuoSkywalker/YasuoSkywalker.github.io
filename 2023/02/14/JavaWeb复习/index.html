@@ -1,0 +1,287 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>JavaWeb复习 | 星辰微光的博客</title><meta name="author" content="星辰微光"><meta name="copyright" content="星辰微光"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="JavaWeb复习 CH01概述与基础知识Web简介Web与互联网的关系互联网是基础设施，Web是互联网的一项服务（应用）。 互联网指20世纪末兴起的计算机网络模式，通过一系列网络协议实现计算机之间的网络通信，是一种网络基础设施。 web，万维网，是一种基于互联网进行访问的应用模式，主要要素包括HTTP、HTML、URL、浏览器等。 Web的发展：1.0，2.0，3.0Web1.0：主要由平台、公">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaWeb复习">
+<meta property="og:url" content="http://example.com/2023/02/14/JavaWeb%E5%A4%8D%E4%B9%A0/index.html">
+<meta property="og:site_name" content="星辰微光的博客">
+<meta property="og:description" content="JavaWeb复习 CH01概述与基础知识Web简介Web与互联网的关系互联网是基础设施，Web是互联网的一项服务（应用）。 互联网指20世纪末兴起的计算机网络模式，通过一系列网络协议实现计算机之间的网络通信，是一种网络基础设施。 web，万维网，是一种基于互联网进行访问的应用模式，主要要素包括HTTP、HTML、URL、浏览器等。 Web的发展：1.0，2.0，3.0Web1.0：主要由平台、公">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png">
+<meta property="article:published_time" content="2023-02-14T14:25:36.000Z">
+<meta property="article:modified_time" content="2023-02-14T15:07:41.357Z">
+<meta property="article:author" content="星辰微光">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2023/02/14/JavaWeb%E5%A4%8D%E4%B9%A0/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'JavaWeb复习',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-02-14 23:07:41'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://img.gejiba.com/images/a097a8cf503f870e9aad51dc0dff96b7.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">167</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">23</div></a></div></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">星辰微光的博客</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">JavaWeb复习</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-02-14T14:25:36.000Z" title="发表于 2023-02-14 22:25:36">2023-02-14</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-02-14T15:07:41.357Z" title="更新于 2023-02-14 23:07:41">2023-02-14</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="JavaWeb复习"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><strong>JavaWeb复习</strong></p>
+<h1 id="CH01概述与基础知识"><a href="#CH01概述与基础知识" class="headerlink" title="CH01概述与基础知识"></a>CH01概述与基础知识</h1><h2 id="Web简介"><a href="#Web简介" class="headerlink" title="Web简介"></a>Web简介</h2><h3 id="Web与互联网的关系"><a href="#Web与互联网的关系" class="headerlink" title="Web与互联网的关系"></a>Web与互联网的关系</h3><p>互联网是基础设施，Web是互联网的一项服务（应用）。</p>
+<p><strong>互联网</strong>指20世纪末兴起的计算机网络模式，通过一系列网络协议实现计算机之间的网络通信，是一种网络基础设施。</p>
+<p><strong>web</strong>，万维网，是一种基于互联网进行访问的应用模式，主要要素包括HTTP、HTML、URL、浏览器等。</p>
+<h3 id="Web的发展：1-0，2-0，3-0"><a href="#Web的发展：1-0，2-0，3-0" class="headerlink" title="Web的发展：1.0，2.0，3.0"></a>Web的发展：1.0，2.0，3.0</h3><p><strong>Web1.0</strong>：主要由平台、公司搭建服务器，创造内容，以静态或动态网页的形式向互联网用户提供信息，用户一般不参与内容的创造，少互动，web1.0也被称为                <strong>只读网络</strong></p>
+<p><strong>Web2.0：</strong>平台、公司除了向用户提供内容外，更多的是提供平台来共享用户生产的内容，让用户可以交互，是<strong>可读可写的网络</strong></p>
+<p><strong>Web3.0：</strong>近年来提出的一个模糊的概念，大致思想包括去中心化、无需许可/审核，用户拥有内容，原生支付等</p>
+<h2 id="Web应用程序的工作原理"><a href="#Web应用程序的工作原理" class="headerlink" title="Web应用程序的工作原理"></a>Web应用程序的工作原理</h2><h3 id="请求——响应模式"><a href="#请求——响应模式" class="headerlink" title="请求——响应模式"></a>请求——响应模式</h3><p>​    客户端把<strong>请求</strong>发送到服务器端的Web应用程序，Web应用程序<strong>接受请求</strong>后进行<strong>相关处理</strong>，把客户端请求的资源以文本、图片、网页等形式，作为<strong>响应</strong>返回到客户端</p>
+<h3 id="B-S和C-S"><a href="#B-S和C-S" class="headerlink" title="B/S和C/S"></a>B/S和C/S</h3><p>​    由于解析HTML文件一般为浏览器，所以将这种架构称为<strong>B/S架构</strong></p>
+<p>​    <strong>C/S架构</strong>：客户端/服务器</p>
+<h3 id="Web服务器"><a href="#Web服务器" class="headerlink" title="Web服务器"></a>Web服务器</h3><p>​    一般来说指<strong>安装了Web服务器应用</strong>的物理主机。Web服务器主要功能包括：处理HTTP协议栈，文件系统映射I/O、多线程处理请求/响应、日志记录、代理服务等。常用的软件有Apache、Nginx等</p>
+<h2 id="Web的三个基础技术"><a href="#Web的三个基础技术" class="headerlink" title="Web的三个基础技术"></a>Web的三个基础技术</h2><h3 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h3><h3 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h3><p>​    <strong>HTTP请求：</strong>包括请求行，请求头，请求体：</p>
+<p>​        请求行包括：<strong>请求方法、资源路径、协议/版本</strong></p>
+<p>​        HTTP1.1规定有7种请求方法，get和post常用于Web应用</p>
+<p>​    <strong>HTTP响应：</strong>响应行，响应头，响应体：</p>
+<p>​        响应行包括：<strong>协议/版本、状态码和状态码描述</strong>三部分</p>
+<p>​        响应头包括响应的相关描述，最重要的是内容类型<strong>Content-Type</strong></p>
+<p>​        响应体一般为HTML网页</p>
+<p>​    <strong>HTTP请求类型：</strong>7种请求方法：</p>
+<table>
+<thead>
+<tr>
+<th align="center">请求方法</th>
+<th align="center">用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">get</td>
+<td align="center">从服务器获取资源</td>
+</tr>
+<tr>
+<td align="center">post</td>
+<td align="center">向服务器提交实体内容</td>
+</tr>
+<tr>
+<td align="center">put</td>
+<td align="center">向服务器传输文件</td>
+</tr>
+<tr>
+<td align="center">delete</td>
+<td align="center">请求删除服务器上的资源</td>
+</tr>
+<tr>
+<td align="center">head</td>
+<td align="center">只获取服务器响应头的头部</td>
+</tr>
+<tr>
+<td align="center">options</td>
+<td align="center">询问服务器支持的请求方法</td>
+</tr>
+<tr>
+<td align="center">trace</td>
+<td align="center">请求跟踪路径</td>
+</tr>
+</tbody></table>
+<p>​    <strong>HTTP响应：</strong></p>
+<p>​        常用的响应状态码：</p>
+<table>
+<thead>
+<tr>
+<th align="center">HTTP状态码</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">200</td>
+<td align="center">请求成功</td>
+</tr>
+<tr>
+<td align="center">201</td>
+<td align="center">请求成功并在服务器上创建新资源</td>
+</tr>
+<tr>
+<td align="center">202</td>
+<td align="center">请求被接受但未处理完成</td>
+</tr>
+<tr>
+<td align="center">204</td>
+<td align="center">请求成功，但未发布任何新内容</td>
+</tr>
+<tr>
+<td align="center">404</td>
+<td align="center"><strong>请求的资源不可用</strong></td>
+</tr>
+<tr>
+<td align="center">500</td>
+<td align="center"><strong>服务器内部发生错误</strong></td>
+</tr>
+<tr>
+<td align="center">501</td>
+<td align="center">服务器不支持完成请求所需功能</td>
+</tr>
+<tr>
+<td align="center">503</td>
+<td align="center">服务器过载，不能对请求进行服务</td>
+</tr>
+</tbody></table>
+<p>​        常用的内容类型Content-Type：</p>
+<table>
+<thead>
+<tr>
+<th align="center">描述</th>
+<th align="center">MIME</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">网页</td>
+<td align="center">text/html</td>
+</tr>
+<tr>
+<td align="center">字符串</td>
+<td align="center">text/plain</td>
+</tr>
+<tr>
+<td align="center">pdf</td>
+<td align="center">application/pdf</td>
+</tr>
+<tr>
+<td align="center">视频</td>
+<td align="center">video/quicktime</td>
+</tr>
+<tr>
+<td align="center">图片</td>
+<td align="center">image/jpeg</td>
+</tr>
+<tr>
+<td align="center">压缩文件</td>
+<td align="center">application/x-zip</td>
+</tr>
+<tr>
+<td align="center">应用程序</td>
+<td align="center">applicatiion/java</td>
+</tr>
+</tbody></table>
+<h3 id="URL-amp-URI"><a href="#URL-amp-URI" class="headerlink" title="URL&amp;URI"></a>URL&amp;URI</h3><p>​    <strong>URL：</strong>统一资源定位符：</p>
+<p>​        <strong>协议</strong>，指定和服务器的通信方式+<strong>主机</strong>，可以是ip地址或能经dns解析的主机名+<strong>资源路径和文件名</strong>+<strong>参数</strong>，以?开始,多个参数通过&amp;连接</p>
+<p>​    <strong>URI：</strong>统一资源表示符：</p>
+<p>​        URL是URI的子集，URI还在进一步研究当中，方向是弥补url的缺点</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">星辰微光</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/02/14/JavaWeb%E5%A4%8D%E4%B9%A0/">http://example.com/2023/02/14/JavaWeb%E5%A4%8D%E4%B9%A0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">星辰微光的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/02/12/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%94%E8%AE%B013-IO%E7%B3%BB%E7%BB%9F/"><img class="next-cover" src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">操作系统笔记13-IO系统</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://img.gejiba.com/images/a097a8cf503f870e9aad51dc0dff96b7.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">星辰微光</div><div class="author-info__description">星辰微光</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">167</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">23</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CH01%E6%A6%82%E8%BF%B0%E4%B8%8E%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-number">1.</span> <span class="toc-text">CH01概述与基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Web%E7%AE%80%E4%BB%8B"><span class="toc-number">1.1.</span> <span class="toc-text">Web简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Web%E4%B8%8E%E4%BA%92%E8%81%94%E7%BD%91%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">1.1.1.</span> <span class="toc-text">Web与互联网的关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Web%E7%9A%84%E5%8F%91%E5%B1%95%EF%BC%9A1-0%EF%BC%8C2-0%EF%BC%8C3-0"><span class="toc-number">1.1.2.</span> <span class="toc-text">Web的发展：1.0，2.0，3.0</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Web%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">1.2.</span> <span class="toc-text">Web应用程序的工作原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E2%80%94%E2%80%94%E5%93%8D%E5%BA%94%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.2.1.</span> <span class="toc-text">请求——响应模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B-S%E5%92%8CC-S"><span class="toc-number">1.2.2.</span> <span class="toc-text">B&#x2F;S和C&#x2F;S</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Web%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">1.2.3.</span> <span class="toc-text">Web服务器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Web%E7%9A%84%E4%B8%89%E4%B8%AA%E5%9F%BA%E7%A1%80%E6%8A%80%E6%9C%AF"><span class="toc-number">1.3.</span> <span class="toc-text">Web的三个基础技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML"><span class="toc-number">1.3.1.</span> <span class="toc-text">HTML</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP"><span class="toc-number">1.3.2.</span> <span class="toc-text">HTTP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#URL-amp-URI"><span class="toc-number">1.3.3.</span> <span class="toc-text">URL&amp;URI</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/02/14/JavaWeb%E5%A4%8D%E4%B9%A0/" title="JavaWeb复习"><img src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JavaWeb复习"/></a><div class="content"><a class="title" href="/2023/02/14/JavaWeb%E5%A4%8D%E4%B9%A0/" title="JavaWeb复习">JavaWeb复习</a><time datetime="2023-02-14T14:25:36.000Z" title="发表于 2023-02-14 22:25:36">2023-02-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/12/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%94%E8%AE%B013-IO%E7%B3%BB%E7%BB%9F/" title="操作系统笔记13-IO系统"><img src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="操作系统笔记13-IO系统"/></a><div class="content"><a class="title" href="/2023/02/12/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%AC%94%E8%AE%B013-IO%E7%B3%BB%E7%BB%9F/" title="操作系统笔记13-IO系统">操作系统笔记13-IO系统</a><time datetime="2023-02-12T08:56:47.000Z" title="发表于 2023-02-12 16:56:47">2023-02-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/01/06/python-opencv-%E8%BE%B9%E7%BC%98%E6%A3%80%E6%B5%8Bcanny/" title="python:opencv-边缘检测canny"><img src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="python:opencv-边缘检测canny"/></a><div class="content"><a class="title" href="/2023/01/06/python-opencv-%E8%BE%B9%E7%BC%98%E6%A3%80%E6%B5%8Bcanny/" title="python:opencv-边缘检测canny">python:opencv-边缘检测canny</a><time datetime="2023-01-06T08:33:26.000Z" title="发表于 2023-01-06 16:33:26">2023-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/01/06/python-opencv-%E4%BA%8C%E6%AC%A1%E5%85%83%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B/" title="python:opencv-二次元人脸检测"><img src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="python:opencv-二次元人脸检测"/></a><div class="content"><a class="title" href="/2023/01/06/python-opencv-%E4%BA%8C%E6%AC%A1%E5%85%83%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B/" title="python:opencv-二次元人脸检测">python:opencv-二次元人脸检测</a><time datetime="2023-01-06T01:15:56.000Z" title="发表于 2023-01-06 09:15:56">2023-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/01/05/python-opencv-%E4%B8%89%E6%AC%A1%E5%85%83%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B/" title="python:opencv-三次元人脸检测"><img src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="python:opencv-三次元人脸检测"/></a><div class="content"><a class="title" href="/2023/01/05/python-opencv-%E4%B8%89%E6%AC%A1%E5%85%83%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B/" title="python:opencv-三次元人脸检测">python:opencv-三次元人脸检测</a><time datetime="2023-01-05T14:20:59.000Z" title="发表于 2023-01-05 22:20:59">2023-01-05</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By 星辰微光</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
