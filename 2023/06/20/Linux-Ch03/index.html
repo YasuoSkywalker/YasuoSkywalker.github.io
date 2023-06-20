@@ -1,0 +1,224 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Linux-Ch03 | 星辰微光的博客</title><meta name="keywords" content="Linux"><meta name="author" content="星辰微光"><meta name="copyright" content="星辰微光"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Linux-Ch03 软件安装和SSHLinux软件安装make和makefileLinux C语言程序的编译：  gcc命令 12gcc -o 编译后的文件名 欲编译的文件# 不指定编译后的文件名，默认为a.out 编译相关文件：  基本头文件在&#x2F;usr&#x2F;include，附加头文件在&#x2F;usr&#x2F;include&#x2F;sys或&#x2F;usr&#x2F;include&#x2F;linux中 gcc -l选项引入不在默认路径的头文件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux-Ch03">
+<meta property="og:url" content="http://example.com/2023/06/20/Linux-Ch03/index.html">
+<meta property="og:site_name" content="星辰微光的博客">
+<meta property="og:description" content="Linux-Ch03 软件安装和SSHLinux软件安装make和makefileLinux C语言程序的编译：  gcc命令 12gcc -o 编译后的文件名 欲编译的文件# 不指定编译后的文件名，默认为a.out 编译相关文件：  基本头文件在&#x2F;usr&#x2F;include，附加头文件在&#x2F;usr&#x2F;include&#x2F;sys或&#x2F;usr&#x2F;include&#x2F;linux中 gcc -l选项引入不在默认路径的头文件">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png">
+<meta property="article:published_time" content="2023-06-20T09:03:22.000Z">
+<meta property="article:modified_time" content="2023-06-20T14:49:24.625Z">
+<meta property="article:author" content="星辰微光">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2023/06/20/Linux-Ch03/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Linux-Ch03',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-06-20 22:49:24'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://img.gejiba.com/images/a097a8cf503f870e9aad51dc0dff96b7.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">186</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">25</div></a></div></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">星辰微光的博客</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Linux-Ch03</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-06-20T09:03:22.000Z" title="发表于 2023-06-20 17:03:22">2023-06-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-06-20T14:49:24.625Z" title="更新于 2023-06-20 22:49:24">2023-06-20</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Linux-Ch03"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Linux-Ch03-软件安装和SSH"><a href="#Linux-Ch03-软件安装和SSH" class="headerlink" title="Linux-Ch03 软件安装和SSH"></a>Linux-Ch03 软件安装和SSH</h1><h2 id="Linux软件安装"><a href="#Linux软件安装" class="headerlink" title="Linux软件安装"></a>Linux软件安装</h2><h3 id="make和makefile"><a href="#make和makefile" class="headerlink" title="make和makefile"></a>make和makefile</h3><p><strong>Linux C语言程序的编译：</strong></p>
+<ul>
+<li><p>gcc命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcc -o 编译后的文件名 欲编译的文件</span><br><span class="line"><span class="meta">#</span><span class="bash"> 不指定编译后的文件名，默认为a.out</span></span><br></pre></td></tr></table></figure></li>
+<li><p>编译相关文件：</p>
+<ul>
+<li>基本头文件在/usr/include，附加头文件在/usr/include/sys或/usr/include/linux中</li>
+<li>gcc -l选项引入不在默认路径的头文件</li>
+<li>标准库文件位于/lib或/usr/lib中</li>
+</ul>
+</li>
+</ul>
+<p><strong>多个源文件带来的问题及其解决：</strong></p>
+<ul>
+<li><p>make工具会在必要时重新编译所有受影响的文件。</p>
+</li>
+<li><p>make的功能主要<strong>依赖于makefile文件</strong>，makefile文件一般和项目其他源文件放在同一目录下。</p>
+</li>
+<li><p>make命令常用功能：</p>
+<ul>
+<li>-k：发生错误时继续执行</li>
+<li>-n：输出将执行的步骤而不是真正执行</li>
+<li>-f &lt; filename &gt;：指定makefile文件</li>
+</ul>
+</li>
+</ul>
+<h3 id="包管理工具和软件源"><a href="#包管理工具和软件源" class="headerlink" title="包管理工具和软件源"></a>包管理工具和软件源</h3><p><strong>Linux系统软件安装的基本概念：</strong></p>
+<ul>
+<li>软件都是以源代码方式发布的</li>
+<li>一啊不能采用归档压缩文件的方式（tar.gz），称为<strong>软件包</strong></li>
+</ul>
+<p><strong>包管理工具：</strong></p>
+<ul>
+<li><p>由于软件和软件和库之间存在依赖关系，所以诞生了包管理工具和软件仓库。</p>
+</li>
+<li><p>主流软件包管理工具：</p>
+<ul>
+<li><p>RPM：RedHat Package Manager，用于Fedora、CentOS等</p>
+</li>
+<li><p>DPKG：Debian Packager，Ubuntu使用，如命令apt-get</p>
+</li>
+<li><p><strong>YUM：基于RPM的前端软件包管理工具，主要特点：</strong></p>
+<ol>
+<li>从指定服务器自动下载RPM包并安装</li>
+<li>自动处理包依赖关系</li>
+<li>引入仓库和容器概念</li>
+</ol>
+</li>
+<li><p><strong>apt：Ubuntu的包管理工具，底层是dpkg</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get install 软件名</span><br><span class="line"><span class="meta">#</span><span class="bash"> install -f 可以自动解决依赖</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h2 id="远程访问服务器SSH"><a href="#远程访问服务器SSH" class="headerlink" title="远程访问服务器SSH"></a>远程访问服务器SSH</h2><p><strong>Telnet:</strong></p>
+<ul>
+<li>默认使用23端口</li>
+<li>简单易用高效，明文传输，不安全</li>
+</ul>
+<p><strong>SSH：</strong></p>
+<ul>
+<li>基于加密机制的安全连接远程服务器Shell的协议</li>
+</ul>
+<p><strong>使用SSH进行远程登录：</strong></p>
+<ol>
+<li><p>口令登录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssh user@host</span><br><span class="line">ssh root@ip地址</span><br><span class="line">ssh -p 220 root@202.197.64.6</span><br></pre></td></tr></table></figure>
+
+<p><img src="data:image/png;base64,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"></p>
+</li>
+<li><p>公钥登录</p>
+<p>用户将自己的<strong>公钥存在远程主机上</strong>。登陆时，远程主机向用户发送一段随机字符串，用户用自己的私钥加密后，发回来。远程主机用实现储存的公钥进行解密，如果成功，证明用户可信，允许登录</p>
+</li>
+</ol>
+<p><strong>SSH存在的漏洞：中间人攻击</strong></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">星辰微光</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/06/20/Linux-Ch03/">http://example.com/2023/06/20/Linux-Ch03/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">星辰微光的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Linux/">Linux</a></div><div class="post_share"><div class="social-share" data-image="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/06/20/Linux-Ch02/"><img class="next-cover" src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Linux-Ch02</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/06/20/Linux-Ch02/" title="Linux-Ch02"><img class="cover" src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">Linux-Ch02</div></div></a></div><div><a href="/2023/06/20/Linux-Ch01/" title="Linux-Ch01"><img class="cover" src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">Linux-Ch01</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://img.gejiba.com/images/a097a8cf503f870e9aad51dc0dff96b7.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">星辰微光</div><div class="author-info__description">星辰微光</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">186</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">25</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux-Ch03-%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%92%8CSSH"><span class="toc-number">1.</span> <span class="toc-text">Linux-Ch03 软件安装和SSH</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85"><span class="toc-number">1.1.</span> <span class="toc-text">Linux软件安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#make%E5%92%8Cmakefile"><span class="toc-number">1.1.1.</span> <span class="toc-text">make和makefile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%85%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%E5%92%8C%E8%BD%AF%E4%BB%B6%E6%BA%90"><span class="toc-number">1.1.2.</span> <span class="toc-text">包管理工具和软件源</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE%E6%9C%8D%E5%8A%A1%E5%99%A8SSH"><span class="toc-number">1.2.</span> <span class="toc-text">远程访问服务器SSH</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/06/20/Linux-Ch03/" title="Linux-Ch03"><img src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux-Ch03"/></a><div class="content"><a class="title" href="/2023/06/20/Linux-Ch03/" title="Linux-Ch03">Linux-Ch03</a><time datetime="2023-06-20T09:03:22.000Z" title="发表于 2023-06-20 17:03:22">2023-06-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/06/20/Linux-Ch02/" title="Linux-Ch02"><img src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux-Ch02"/></a><div class="content"><a class="title" href="/2023/06/20/Linux-Ch02/" title="Linux-Ch02">Linux-Ch02</a><time datetime="2023-06-20T06:43:19.000Z" title="发表于 2023-06-20 14:43:19">2023-06-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/06/20/Linux-Ch01/" title="Linux-Ch01"><img src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux-Ch01"/></a><div class="content"><a class="title" href="/2023/06/20/Linux-Ch01/" title="Linux-Ch01">Linux-Ch01</a><time datetime="2023-06-20T02:47:22.000Z" title="发表于 2023-06-20 10:47:22">2023-06-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/05/26/Unity%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E5%AF%B9%E8%B1%A1%E6%B1%A0%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/" title="Unity学习记录-对象池简单实现"><img src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity学习记录-对象池简单实现"/></a><div class="content"><a class="title" href="/2023/05/26/Unity%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E5%AF%B9%E8%B1%A1%E6%B1%A0%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/" title="Unity学习记录-对象池简单实现">Unity学习记录-对象池简单实现</a><time datetime="2023-05-26T14:36:05.000Z" title="发表于 2023-05-26 22:36:05">2023-05-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/05/26/Unity%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E8%83%8C%E5%8C%85%E7%B3%BB%E7%BB%9F%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/" title="Unity学习记录-背包系统简单实现"><img src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity学习记录-背包系统简单实现"/></a><div class="content"><a class="title" href="/2023/05/26/Unity%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E8%83%8C%E5%8C%85%E7%B3%BB%E7%BB%9F%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/" title="Unity学习记录-背包系统简单实现">Unity学习记录-背包系统简单实现</a><time datetime="2023-05-26T14:35:53.000Z" title="发表于 2023-05-26 22:35:53">2023-05-26</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By 星辰微光</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
