@@ -7,7 +7,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png">
 <meta property="article:published_time" content="2023-06-20T06:43:19.000Z">
-<meta property="article:modified_time" content="2023-06-20T08:41:32.304Z">
+<meta property="article:modified_time" content="2023-06-20T08:44:35.161Z">
 <meta property="article:author" content="星辰微光">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
@@ -58,7 +58,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2023-06-20 16:41:32'
+  postUpdate: '2023-06-20 16:44:35'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -147,7 +147,7 @@
       }
     }
     detectApple()
-    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://img.gejiba.com/images/a097a8cf503f870e9aad51dc0dff96b7.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">185</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">25</div></a></div></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">星辰微光的博客</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Linux-Ch02</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-06-20T06:43:19.000Z" title="发表于 2023-06-20 14:43:19">2023-06-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-06-20T08:41:32.304Z" title="更新于 2023-06-20 16:41:32">2023-06-20</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Linux-Ch02"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Linux-Ch02-文件与操作"><a href="#Linux-Ch02-文件与操作" class="headerlink" title="Linux-Ch02 文件与操作"></a>Linux-Ch02 文件与操作</h1><h2 id="文件的组织与操作"><a href="#文件的组织与操作" class="headerlink" title="文件的组织与操作"></a>文件的组织与操作</h2><h3 id="Linux文件系统的特点"><a href="#Linux文件系统的特点" class="headerlink" title="Linux文件系统的特点"></a>Linux文件系统的特点</h3><p>Linux系统中<strong>一切事物都是文件</strong>，包括常见的普通文件（文本文件、多媒体文件、可执行文件）和特殊文件（硬件、内存、进程）等。</p>
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://img.gejiba.com/images/a097a8cf503f870e9aad51dc0dff96b7.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">185</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">25</div></a></div></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">星辰微光的博客</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Linux-Ch02</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-06-20T06:43:19.000Z" title="发表于 2023-06-20 14:43:19">2023-06-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-06-20T08:44:35.161Z" title="更新于 2023-06-20 16:44:35">2023-06-20</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Linux-Ch02"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Linux-Ch02-文件与操作"><a href="#Linux-Ch02-文件与操作" class="headerlink" title="Linux-Ch02 文件与操作"></a>Linux-Ch02 文件与操作</h1><h2 id="文件的组织与操作"><a href="#文件的组织与操作" class="headerlink" title="文件的组织与操作"></a>文件的组织与操作</h2><h3 id="Linux文件系统的特点"><a href="#Linux文件系统的特点" class="headerlink" title="Linux文件系统的特点"></a>Linux文件系统的特点</h3><p>Linux系统中<strong>一切事物都是文件</strong>，包括常见的普通文件（文本文件、多媒体文件、可执行文件）和特殊文件（硬件、内存、进程）等。</p>
 <p>Linux文件系统是一个典型的<strong>单根、分层、树形结</strong>构，第一级目录称<strong>根目录</strong>，符号 / 表示。根目录包含文件和子目录，依此递归。</p>
 <p>其他特点：</p>
 <ul>
@@ -584,6 +584,12 @@
 <li>r：可以读取文件的实际内容，如文本文件的文字</li>
 <li>w：可以编辑、新增或修改内容（<strong>不含删除文件</strong>）</li>
 <li>x：可以被系统执行</li>
+</ul>
+<p><strong>针对目录权限的意义：</strong></p>
+<ul>
+<li>r：有读取目录的权限，可以用ls命令查询该目录下的文件信息</li>
+<li>w：有更改目录结构列表的权限，<strong>如新建文件、删除文件、转移文件、重命名文件等</strong></li>
+<li><strong>x：是否能进入该目录</strong></li>
 </ul>
 <p><strong>Linux文件是否可以执行不由文件后缀名决定，由权限的x属性决定</strong></p>
 <p><strong>一个文件内存有多大，需要其父目录的r权限</strong></p>
