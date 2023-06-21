@@ -1,0 +1,198 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Linux-Ch07 | 星辰微光的博客</title><meta name="keywords" content="Linux"><meta name="author" content="星辰微光"><meta name="copyright" content="星辰微光"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Linux-Ch07 Linux系统安全和防火墙linux服务器安全可以分为系统安全和网络安全两个部分 Linux系统安全权限三部曲 UGO补充：默认权限： umask命令用于查看或设定新建文件和目录时的默认权限  新建文件的默认权限&#x3D;666-umask值  新建目录的默认权限&#x3D;777-umask值     UGO补充：特殊权限： 是UGO权限模型对普通rwx权限的补充。因为基本的rwx权限难以实">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux-Ch07">
+<meta property="og:url" content="http://example.com/2023/06/21/Linux-Ch07/index.html">
+<meta property="og:site_name" content="星辰微光的博客">
+<meta property="og:description" content="Linux-Ch07 Linux系统安全和防火墙linux服务器安全可以分为系统安全和网络安全两个部分 Linux系统安全权限三部曲 UGO补充：默认权限： umask命令用于查看或设定新建文件和目录时的默认权限  新建文件的默认权限&#x3D;666-umask值  新建目录的默认权限&#x3D;777-umask值     UGO补充：特殊权限： 是UGO权限模型对普通rwx权限的补充。因为基本的rwx权限难以实">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png">
+<meta property="article:published_time" content="2023-06-21T14:30:30.000Z">
+<meta property="article:modified_time" content="2023-06-21T15:09:29.810Z">
+<meta property="article:author" content="星辰微光">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2023/06/21/Linux-Ch07/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Linux-Ch07',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-06-21 23:09:29'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://img.gejiba.com/images/a097a8cf503f870e9aad51dc0dff96b7.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">190</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">25</div></a></div></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">星辰微光的博客</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Linux-Ch07</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-06-21T14:30:30.000Z" title="发表于 2023-06-21 22:30:30">2023-06-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-06-21T15:09:29.810Z" title="更新于 2023-06-21 23:09:29">2023-06-21</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Linux-Ch07"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Linux-Ch07-Linux系统安全和防火墙"><a href="#Linux-Ch07-Linux系统安全和防火墙" class="headerlink" title="Linux-Ch07 Linux系统安全和防火墙"></a>Linux-Ch07 Linux系统安全和防火墙</h1><p>linux服务器安全可以分为<strong>系统安全</strong>和<strong>网络安全</strong>两个部分</p>
+<h2 id="Linux系统安全"><a href="#Linux系统安全" class="headerlink" title="Linux系统安全"></a>Linux系统安全</h2><h3 id="权限三部曲"><a href="#权限三部曲" class="headerlink" title="权限三部曲"></a>权限三部曲</h3><ol>
+<li><p><strong>UGO补充：默认权限：</strong></p>
+<p><code>umask</code>命令用于查看或设定新建文件和目录时的默认权限</p>
+<ul>
+<li><p>新建文件的默认权限=666-umask值</p>
+</li>
+<li><p>新建目录的默认权限=777-umask值</p>
+<p><img src="data:image/png;base64,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"></p>
+</li>
+</ul>
+</li>
+<li><p><strong>UGO补充：特殊权限：</strong></p>
+<p>是UGO权限模型对普通rwx权限的补充。因为基本的rwx权限难以实现某些特殊场景，如普通用户修改密码。</p>
+<p><strong>三种特殊权限：</strong></p>
+<ul>
+<li><p><strong>SUID（针对可执行文件）</strong></p>
+<p><strong>仅对二进制文件有效，仅在运行时有效</strong>。执行者在拥有该程序的x权限前提下，将拥有该程序所有者的权限（可理解为用户身份变为文件拥有者）</p>
+</li>
+<li><p><strong>SGID（针对可执行文件）</strong></p>
+<p><strong>和SUID类似，针对于组用户。</strong>，可以理解为用户的群组身份变成文件所属群组</p>
+</li>
+<li><p><strong>SBIT（针对目录）</strong></p>
+<p>用于设置目录的特殊权限，作用是：<strong>当用户拥有某目录的写入权限时（w、x），在该目录创建的文件只有该用户和root用户可以进行更名、移动、删除</strong></p>
+</li>
+<li><p><strong>设置和修改三种特殊权限</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 数字方法</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> SUID对应4 SGID对应2 SBIT对应1，即在权限数字前添加一个数字</span></span><br><span class="line">chmod 4755 test</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 字符方法</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> SUID为u+s SGID为g+s SBIT为o+t</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>ACL权限：</strong></p>
+<p>Access Control List，访问控制列表，可以针对单一用户、单一文件或目录进行r、w、x的管理。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> ACL权限使用： setfacl和getfacl</span></span><br><span class="line">setfacl [-bkRd] [&#123;-m|-x&#125; acl参数] 目标文件名</span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -m：设定指定的acl参数给文件使用</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -x：删除指定的acl参数</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -b：删除所有的acl参数</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -R：若目标文件为目录则递归设置</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> acl参数：</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> u:[用户账号列表]:[rwx]</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> g:[用户组列表]:[rwx]</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> m:[rwx]</span></span><br><span class="line">setfacl -m u:starlightglimmer:rwx test1</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="SELinux"><a href="#SELinux" class="headerlink" title="SELinux"></a>SELinux</h3><p>传统Linux权限管理机制：DAC，自主访问控制</p>
+<p>SELinux权限管理机制：<strong>MAC，委托访问控制</strong></p>
+<p><strong>相关概念：</strong></p>
+<ul>
+<li>主体：运行中的程序，进程</li>
+<li>目标：进程想访问的资源、文件</li>
+<li>策略：针对不同类型应用设置的一系列规则</li>
+<li>安全上下文：相当于rwx</li>
+</ul>
+<p><strong>三种模式：</strong></p>
+<ul>
+<li>enforcing：强制模式：SELinux运行中，根据策略和安全上下文控制访问</li>
+<li>Permissive：宽容模式，SELinux运行中，但只提供警告</li>
+<li>disabled：关闭SELinux</li>
+</ul>
+<h2 id="防火墙技术"><a href="#防火墙技术" class="headerlink" title="防火墙技术"></a>防火墙技术</h2><h3 id="Linux防火墙基本概念"><a href="#Linux防火墙基本概念" class="headerlink" title="Linux防火墙基本概念"></a>Linux防火墙基本概念</h3><h3 id="Linux防火墙的使用"><a href="#Linux防火墙的使用" class="headerlink" title="Linux防火墙的使用"></a>Linux防火墙的使用</h3></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">星辰微光</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/06/21/Linux-Ch07/">http://example.com/2023/06/21/Linux-Ch07/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">星辰微光的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Linux/">Linux</a></div><div class="post_share"><div class="social-share" data-image="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/06/21/Linux-Ch06/"><img class="next-cover" src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Linux-Ch06</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/06/20/Linux-Ch03/" title="Linux-Ch03"><img class="cover" src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">Linux-Ch03</div></div></a></div><div><a href="/2023/06/20/Linux-Ch02/" title="Linux-Ch02"><img class="cover" src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">Linux-Ch02</div></div></a></div><div><a href="/2023/06/20/Linux-Ch01/" title="Linux-Ch01"><img class="cover" src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-20</div><div class="title">Linux-Ch01</div></div></a></div><div><a href="/2023/06/21/Linux-Ch06/" title="Linux-Ch06"><img class="cover" src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-21</div><div class="title">Linux-Ch06</div></div></a></div><div><a href="/2023/06/21/Linux-Ch04/" title="Linux-Ch04"><img class="cover" src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-21</div><div class="title">Linux-Ch04</div></div></a></div><div><a href="/2023/06/21/Linux-Ch05/" title="Linux-Ch05"><img class="cover" src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-06-21</div><div class="title">Linux-Ch05</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://img.gejiba.com/images/a097a8cf503f870e9aad51dc0dff96b7.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">星辰微光</div><div class="author-info__description">星辰微光</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">190</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">25</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux-Ch07-Linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8%E5%92%8C%E9%98%B2%E7%81%AB%E5%A2%99"><span class="toc-number">1.</span> <span class="toc-text">Linux-Ch07 Linux系统安全和防火墙</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8"><span class="toc-number">1.1.</span> <span class="toc-text">Linux系统安全</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%83%E9%99%90%E4%B8%89%E9%83%A8%E6%9B%B2"><span class="toc-number">1.1.1.</span> <span class="toc-text">权限三部曲</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SELinux"><span class="toc-number">1.1.2.</span> <span class="toc-text">SELinux</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%98%B2%E7%81%AB%E5%A2%99%E6%8A%80%E6%9C%AF"><span class="toc-number">1.2.</span> <span class="toc-text">防火墙技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux%E9%98%B2%E7%81%AB%E5%A2%99%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">1.2.1.</span> <span class="toc-text">Linux防火墙基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux%E9%98%B2%E7%81%AB%E5%A2%99%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">1.2.2.</span> <span class="toc-text">Linux防火墙的使用</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/06/21/Linux-Ch07/" title="Linux-Ch07"><img src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux-Ch07"/></a><div class="content"><a class="title" href="/2023/06/21/Linux-Ch07/" title="Linux-Ch07">Linux-Ch07</a><time datetime="2023-06-21T14:30:30.000Z" title="发表于 2023-06-21 22:30:30">2023-06-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/06/21/Linux-Ch06/" title="Linux-Ch06"><img src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux-Ch06"/></a><div class="content"><a class="title" href="/2023/06/21/Linux-Ch06/" title="Linux-Ch06">Linux-Ch06</a><time datetime="2023-06-21T08:54:00.000Z" title="发表于 2023-06-21 16:54:00">2023-06-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/06/21/Linux-Ch05/" title="Linux-Ch05"><img src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux-Ch05"/></a><div class="content"><a class="title" href="/2023/06/21/Linux-Ch05/" title="Linux-Ch05">Linux-Ch05</a><time datetime="2023-06-21T03:08:07.000Z" title="发表于 2023-06-21 11:08:07">2023-06-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/06/21/Linux-Ch04/" title="Linux-Ch04"><img src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux-Ch04"/></a><div class="content"><a class="title" href="/2023/06/21/Linux-Ch04/" title="Linux-Ch04">Linux-Ch04</a><time datetime="2023-06-21T01:12:06.000Z" title="发表于 2023-06-21 09:12:06">2023-06-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/06/20/Linux-Ch03/" title="Linux-Ch03"><img src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux-Ch03"/></a><div class="content"><a class="title" href="/2023/06/20/Linux-Ch03/" title="Linux-Ch03">Linux-Ch03</a><time datetime="2023-06-20T09:03:22.000Z" title="发表于 2023-06-20 17:03:22">2023-06-20</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By 星辰微光</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
