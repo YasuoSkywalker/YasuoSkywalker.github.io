@@ -7,7 +7,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png">
 <meta property="article:published_time" content="2023-06-20T09:03:22.000Z">
-<meta property="article:modified_time" content="2023-06-20T14:49:24.625Z">
+<meta property="article:modified_time" content="2023-06-24T01:18:28.946Z">
 <meta property="article:author" content="星辰微光">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
@@ -58,7 +58,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2023-06-20 22:49:24'
+  postUpdate: '2023-06-24 09:18:28'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -147,7 +147,7 @@
       }
     }
     detectApple()
-    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://img.gejiba.com/images/a097a8cf503f870e9aad51dc0dff96b7.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">193</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">25</div></a></div></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">星辰微光的博客</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Linux-Ch03</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-06-20T09:03:22.000Z" title="发表于 2023-06-20 17:03:22">2023-06-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-06-20T14:49:24.625Z" title="更新于 2023-06-20 22:49:24">2023-06-20</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Linux-Ch03"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Linux-Ch03-软件安装和SSH"><a href="#Linux-Ch03-软件安装和SSH" class="headerlink" title="Linux-Ch03 软件安装和SSH"></a>Linux-Ch03 软件安装和SSH</h1><h2 id="Linux软件安装"><a href="#Linux软件安装" class="headerlink" title="Linux软件安装"></a>Linux软件安装</h2><h3 id="make和makefile"><a href="#make和makefile" class="headerlink" title="make和makefile"></a>make和makefile</h3><p><strong>Linux C语言程序的编译：</strong></p>
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://img.gejiba.com/images/a097a8cf503f870e9aad51dc0dff96b7.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">193</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">25</div></a></div></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">星辰微光的博客</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Linux-Ch03</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-06-20T09:03:22.000Z" title="发表于 2023-06-20 17:03:22">2023-06-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-06-24T01:18:28.946Z" title="更新于 2023-06-24 09:18:28">2023-06-24</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Linux-Ch03"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Linux-Ch03-软件安装和SSH"><a href="#Linux-Ch03-软件安装和SSH" class="headerlink" title="Linux-Ch03 软件安装和SSH"></a>Linux-Ch03 软件安装和SSH</h1><h2 id="Linux软件安装"><a href="#Linux软件安装" class="headerlink" title="Linux软件安装"></a>Linux软件安装</h2><h3 id="make和makefile"><a href="#make和makefile" class="headerlink" title="make和makefile"></a>make和makefile</h3><p><strong>Linux C语言程序的编译：</strong></p>
 <ul>
 <li><p>gcc命令</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcc -o 编译后的文件名 欲编译的文件</span><br><span class="line"><span class="meta">#</span><span class="bash"> 不指定编译后的文件名，默认为a.out</span></span><br></pre></td></tr></table></figure></li>
@@ -176,7 +176,7 @@
 <h3 id="包管理工具和软件源"><a href="#包管理工具和软件源" class="headerlink" title="包管理工具和软件源"></a>包管理工具和软件源</h3><p><strong>Linux系统软件安装的基本概念：</strong></p>
 <ul>
 <li>软件都是以源代码方式发布的</li>
-<li>一啊不能采用归档压缩文件的方式（tar.gz），称为<strong>软件包</strong></li>
+<li>一般采用归档压缩文件的方式（tar.gz），称为<strong>软件包</strong></li>
 </ul>
 <p><strong>包管理工具：</strong></p>
 <ul>
