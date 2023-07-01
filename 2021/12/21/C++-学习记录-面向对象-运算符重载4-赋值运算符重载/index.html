@@ -1,0 +1,173 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>C++学习记录-面向对象-运算符重载4-赋值运算符重载 | 星辰微光的博客</title><meta name="keywords" content="C++,面向对象"><meta name="author" content="星辰微光"><meta name="copyright" content="星辰微光"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="C++学习记录-面向对象-运算符重载4-赋值运算符重载 一、重载的原因 一般情况下，编译系统会为每个类提供一个默认的赋值运算符，用这个默认的赋值运算符操作类对象时，该运算符会把这个类的所有数据成员都进行一次赋值操作。 但是，当遇到以下情况时程序会报错： 12345678910111213141516171819class level &amp;#123;public:	int *lv;    &#x2F;&#x2F;创建一个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++学习记录-面向对象-运算符重载4-赋值运算符重载">
+<meta property="og:url" content="https://yasuoskywalker.github.io/2021/12/21/C++-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD4-%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/index.html">
+<meta property="og:site_name" content="星辰微光的博客">
+<meta property="og:description" content="C++学习记录-面向对象-运算符重载4-赋值运算符重载 一、重载的原因 一般情况下，编译系统会为每个类提供一个默认的赋值运算符，用这个默认的赋值运算符操作类对象时，该运算符会把这个类的所有数据成员都进行一次赋值操作。 但是，当遇到以下情况时程序会报错： 12345678910111213141516171819class level &amp;#123;public:	int *lv;    &#x2F;&#x2F;创建一个">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png">
+<meta property="article:published_time" content="2021-12-21T13:53:30.000Z">
+<meta property="article:modified_time" content="2022-01-09T01:52:52.004Z">
+<meta property="article:author" content="星辰微光">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="面向对象">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://yasuoskywalker.github.io/2021/12/21/C++-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD4-%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'C++学习记录-面向对象-运算符重载4-赋值运算符重载',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2022-01-09 09:52:52'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://img.gejiba.com/images/a097a8cf503f870e9aad51dc0dff96b7.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">193</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">25</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">星辰微光的博客</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">C++学习记录-面向对象-运算符重载4-赋值运算符重载</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-12-21T13:53:30.000Z" title="发表于 2021-12-21 21:53:30">2021-12-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-01-09T01:52:52.004Z" title="更新于 2022-01-09 09:52:52">2022-01-09</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="C++学习记录-面向对象-运算符重载4-赋值运算符重载"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><strong>C++学习记录-面向对象-运算符重载4-赋值运算符重载</strong></p>
+<p><strong>一、重载的原因</strong></p>
+<p>一般情况下，编译系统会为每个类提供一个默认的赋值运算符，用这个默认的赋值运算符操作类对象时，该运算符会把这个类的所有数据成员都进行一次赋值操作。</p>
+<p>但是，当遇到以下情况时程序会报错：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">level</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="keyword">int</span> *lv;</span><br><span class="line">    <span class="comment">//创建一个int型指针属性</span></span><br><span class="line">    </span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">level</span>(<span class="keyword">int</span> a) &#123; lv=<span class="keyword">new</span> <span class="built_in"><span class="keyword">int</span></span>(a); &#125;</span><br><span class="line">	<span class="comment">//构造函数，在堆区开辟一块内存并使指针指向它</span></span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">	~<span class="built_in">level</span>()</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (lv != <span class="literal">NULL</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">delete</span> lv;</span><br><span class="line">			lv = <span class="literal">NULL</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;<span class="comment">//析构函数，释放内存</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="function">level <span class="title">l1</span><span class="params">(<span class="number">20</span>)</span></span>;</span><br><span class="line">	<span class="function">level <span class="title">l2</span><span class="params">(<span class="number">18</span>)</span></span>; </span><br><span class="line">	l2= l1;<span class="comment">//默认赋值</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">test</span>();<span class="comment">//调用</span></span><br></pre></td></tr></table></figure>
+
+<p>程序报错：已引发异常</p>
+<p><strong>因为在test函数调用完成后，要释放l1，l2两个对象，但此时l1，l2中的指针指向的都是同一块内存空间（l2=l1），造成了同一块内存被重复释放</strong></p>
+<p>为解决这个问题，要用到<strong>重载赋值运算符</strong></p>
+<p><strong>二、重载赋值运算符及其注意事项</strong></p>
+<ul>
+<li>重载赋值运算符<strong>必须写为成员函数</strong></li>
+</ul>
+<p><strong>示例：</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">level</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="keyword">int</span> *lv;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="built_in">level</span>(<span class="keyword">int</span> a) &#123; lv=<span class="keyword">new</span> <span class="built_in"><span class="keyword">int</span></span>(a); &#125;<span class="comment">//构造函数</span></span><br><span class="line">	~<span class="built_in">level</span>()</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (lv != <span class="literal">NULL</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">delete</span> lv;</span><br><span class="line">			lv = <span class="literal">NULL</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;<span class="comment">//析构函数</span></span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">void</span> <span class="keyword">operator</span>=(level&amp; a)</span><br><span class="line">	&#123;</span><br><span class="line">		lv = <span class="keyword">new</span> <span class="built_in"><span class="keyword">int</span></span>(*(a.lv));</span><br><span class="line">	&#125;<span class="comment">//重载赋值运算符</span></span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>重载赋值运算符，<strong>让被赋值的对象的指针指向一块新开辟的内存</strong>，避免了内存被重复释放</p>
+<p>若要实现<strong>连等</strong>，则将返回值类型写为 对象的引用，如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">level&amp; <span class="keyword">operator</span>=(level&amp; a)</span><br><span class="line">&#123;</span><br><span class="line">	lv = <span class="keyword">new</span> <span class="built_in"><span class="keyword">int</span></span>(*(a.lv));</span><br><span class="line">	</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">    </span><br><span class="line">&#125;<span class="comment">//返回引用，实现连等</span></span><br></pre></td></tr></table></figure>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">星辰微光</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://yasuoskywalker.github.io/2021/12/21/C++-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD4-%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/">https://yasuoskywalker.github.io/2021/12/21/C++-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD4-%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://yasuoskywalker.github.io" target="_blank">星辰微光的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/C/">C++</a><a class="post-meta__tags" href="/tags/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">面向对象</a></div><div class="post_share"><div class="social-share" data-image="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/12/23/C++-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD5-%E5%85%B3%E7%B3%BB%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/"><img class="prev-cover" src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">C++学习记录-面向对象-运算符重载5-关系运算符重载</div></div></a></div><div class="next-post pull-right"><a href="/2021/12/21/C++-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD3-%E9%80%92%E5%A2%9E%E9%80%92%E5%87%8F%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/"><img class="next-cover" src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">C++学习记录-面向对象-运算符重载3-递增递减运算符重载</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/12/08/C++-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-class/" title="C++学习记录-面向对象:class"><img class="cover" src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-08</div><div class="title">C++学习记录-面向对象:class</div></div></a></div><div><a href="/2021/12/11/C++-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E5%8F%8B%E5%85%831.%E6%A6%82%E8%AE%BA/" title="C++-学习记录-面向对象-友元1.概论"><img class="cover" src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-11</div><div class="title">C++-学习记录-面向对象-友元1.概论</div></div></a></div><div><a href="/2021/12/12/C++-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E5%8F%8B%E5%85%832/" title="C++学习记录-面向对象-友元2"><img class="cover" src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-12</div><div class="title">C++学习记录-面向对象-友元2</div></div></a></div><div><a href="/2021/12/24/C++-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E5%90%8C%E5%90%8D%E6%88%90%E5%91%98%E7%9A%84%E5%A4%84%E7%90%86/" title="C++学习记录-面向对象-同名成员的处理"><img class="cover" src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-24</div><div class="title">C++学习记录-面向对象-同名成员的处理</div></div></a></div><div><a href="/2021/12/11/C++-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E5%AF%B9%E8%B1%A1%E6%88%90%E5%91%98/" title="C++学习记录-面向对象-对象成员"><img class="cover" src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-11</div><div class="title">C++学习记录-面向对象-对象成员</div></div></a></div><div><a href="/2021/12/12/C++-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0%E5%81%9A%E5%8F%8B%E5%85%83%E9%97%AE%E9%A2%98/" title="C++学习记录-面向对象-成员函数做友元问题"><img class="cover" src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-12</div><div class="title">C++学习记录-面向对象-成员函数做友元问题</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://img.gejiba.com/images/a097a8cf503f870e9aad51dc0dff96b7.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">星辰微光</div><div class="author-info__description">星辰微光</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">193</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">25</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/06/23/Linux-Ch10/" title="Linux-Ch10"><img src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux-Ch10"/></a><div class="content"><a class="title" href="/2023/06/23/Linux-Ch10/" title="Linux-Ch10">Linux-Ch10</a><time datetime="2023-06-23T03:26:43.000Z" title="发表于 2023-06-23 11:26:43">2023-06-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/06/23/Linux-Ch09/" title="Linux-Ch09"><img src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux-Ch09"/></a><div class="content"><a class="title" href="/2023/06/23/Linux-Ch09/" title="Linux-Ch09">Linux-Ch09</a><time datetime="2023-06-23T01:43:20.000Z" title="发表于 2023-06-23 09:43:20">2023-06-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/06/22/Linux-Ch08/" title="Linux-Ch08"><img src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux-Ch08"/></a><div class="content"><a class="title" href="/2023/06/22/Linux-Ch08/" title="Linux-Ch08">Linux-Ch08</a><time datetime="2023-06-22T14:39:35.000Z" title="发表于 2023-06-22 22:39:35">2023-06-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/06/21/Linux-Ch07/" title="Linux-Ch07"><img src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux-Ch07"/></a><div class="content"><a class="title" href="/2023/06/21/Linux-Ch07/" title="Linux-Ch07">Linux-Ch07</a><time datetime="2023-06-21T14:30:30.000Z" title="发表于 2023-06-21 22:30:30">2023-06-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/06/21/Linux-Ch06/" title="Linux-Ch06"><img src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux-Ch06"/></a><div class="content"><a class="title" href="/2023/06/21/Linux-Ch06/" title="Linux-Ch06">Linux-Ch06</a><time datetime="2023-06-21T08:54:00.000Z" title="发表于 2023-06-21 16:54:00">2023-06-21</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By 星辰微光</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

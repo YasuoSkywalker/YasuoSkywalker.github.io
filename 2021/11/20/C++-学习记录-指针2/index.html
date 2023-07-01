@@ -1,0 +1,227 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>C++学习记录-指针2 | 星辰微光的博客</title><meta name="keywords" content="C++,指针"><meta name="author" content="星辰微光"><meta name="copyright" content="星辰微光"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="C++学习记录-指针2（指针与数组） 指针与一维数组 创建一个指针指向一维数组，此时指针指向的是一维数组的首地址。 示例： 123int arr[2]&#x3D;&amp;#123;1,2&amp;#125;;int *p1&#x3D;arr;&#x2F;&#x2F;指针指向arr的首地址，即1的地址int *p2&#x3D;&amp;arr[1];&#x2F;&#x2F;此时指针指向的是2的地址  利用指针遍历数组时，让指针++即可让指针向后移动一个位置，指向下一个数值，让指针+">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++学习记录-指针2">
+<meta property="og:url" content="https://yasuoskywalker.github.io/2021/11/20/C++-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E6%8C%87%E9%92%882/index.html">
+<meta property="og:site_name" content="星辰微光的博客">
+<meta property="og:description" content="C++学习记录-指针2（指针与数组） 指针与一维数组 创建一个指针指向一维数组，此时指针指向的是一维数组的首地址。 示例： 123int arr[2]&#x3D;&amp;#123;1,2&amp;#125;;int *p1&#x3D;arr;&#x2F;&#x2F;指针指向arr的首地址，即1的地址int *p2&#x3D;&amp;arr[1];&#x2F;&#x2F;此时指针指向的是2的地址  利用指针遍历数组时，让指针++即可让指针向后移动一个位置，指向下一个数值，让指针+">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png">
+<meta property="article:published_time" content="2021-11-19T16:19:10.000Z">
+<meta property="article:modified_time" content="2022-01-09T01:54:56.606Z">
+<meta property="article:author" content="星辰微光">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="指针">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://yasuoskywalker.github.io/2021/11/20/C++-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E6%8C%87%E9%92%882/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'C++学习记录-指针2',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2022-01-09 09:54:56'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://img.gejiba.com/images/a097a8cf503f870e9aad51dc0dff96b7.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">193</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">25</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">星辰微光的博客</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">C++学习记录-指针2</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-11-19T16:19:10.000Z" title="发表于 2021-11-20 00:19:10">2021-11-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-01-09T01:54:56.606Z" title="更新于 2022-01-09 09:54:56">2022-01-09</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="C++学习记录-指针2"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><strong>C++学习记录-指针2（指针与数组）</strong></p>
+<p><strong>指针与一维数组</strong></p>
+<p>创建一个指针指向一维数组，此时指针指向的是一维数组的首地址。</p>
+<p><strong>示例：</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> arr[<span class="number">2</span>]=&#123;<span class="number">1</span>,<span class="number">2</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> *p1=arr;<span class="comment">//指针指向arr的首地址，即1的地址</span></span><br><span class="line"><span class="keyword">int</span> *p2=&amp;arr[<span class="number">1</span>];<span class="comment">//此时指针指向的是2的地址</span></span><br></pre></td></tr></table></figure>
+
+<p>利用指针遍历数组时，让<strong>指针++即可让指针向后移动一个位置，指向下一个数值</strong>，让<strong>指针+i即可让指针向后移动i个位置</strong></p>
+<p><strong>示例：</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">p1++;<span class="comment">//此时p1指向2的地址</span></span><br><span class="line">p1+<span class="number">1</span><span class="comment">//此时p1指向2的地址</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>下面附上指针与一维数组关系表格：</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">表现形式</th>
+<th align="center">表现形式</th>
+<th align="center">表现形式</th>
+<th align="center">表现形式</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">&amp;arr[0]</td>
+<td align="center">arr</td>
+<td align="center">p</td>
+<td align="center"></td>
+<td align="center">一维数组arr的首地址</td>
+</tr>
+<tr>
+<td align="center">&amp;arr[i]</td>
+<td align="center">arr+i</td>
+<td align="center">p+i</td>
+<td align="center"></td>
+<td align="center">一维数组下标为i的元素地址</td>
+</tr>
+<tr>
+<td align="center">arr[0]</td>
+<td align="center">*arr</td>
+<td align="center">*p</td>
+<td align="center"></td>
+<td align="center">一维数组第一个元素的值</td>
+</tr>
+<tr>
+<td align="center">a[i]</td>
+<td align="center">*(arr+i)</td>
+<td align="center">*(p+i)</td>
+<td align="center">p[i]</td>
+<td align="center">一维数组下标为i的元素的值</td>
+</tr>
+</tbody></table>
+<p><strong>指针与二维数组</strong></p>
+<p>1.二维数组其实是一维数组的集合</p>
+<p>示例代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> arr[<span class="number">2</span>][<span class="number">2</span>]=&#123;</span><br><span class="line">    &#123;<span class="number">0</span>,<span class="number">1</span>&#125;,</span><br><span class="line">    &#123;<span class="number">2</span>,<span class="number">3</span>&#125;</span><br><span class="line">    &#125;；</span><br><span class="line"><span class="comment">//定义了一个2行2列的二维数组，它其实是由两个 含有两个元素的一维数组 拼成的</span></span><br></pre></td></tr></table></figure>
+
+<p>定义二维数组指针：类型 (*指针名)[二维数组的列数]=arr</p>
+<p>示例代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in"><span class="keyword">int</span></span> (*parr)[<span class="number">2</span>]=arr;<span class="comment">//定义二维数组指针</span></span><br><span class="line"><span class="comment">//这其实是一个二级指针。指针指向一维数组&#123;0，1&#125;的首地址。后面的【2】则是 一维数组 的个数（即列数）。</span></span><br></pre></td></tr></table></figure>
+
+<p>解引用方法：<strong>先解成一维数组的指针，再按照一维数组的指针进行解引用解出对应的元素</strong></p>
+<p>示例代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cout&lt;&lt;*parr&lt;&lt;endl; <span class="comment">//解出第一个一维数组的指针，打印第一个一维数组的地址008FFC5C</span></span><br><span class="line">cout&lt;&lt;*(*parr+<span class="number">1</span>)&lt;&lt;endl;<span class="comment">//先解出第一个一维数组的指针，再往后移动一个位置，再解引用，此时打印1</span></span><br><span class="line">cout&lt;&lt;*(*(parr+<span class="number">1</span>)+<span class="number">1</span>)&lt;&lt;endl;<span class="comment">//此时打印3</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>visual studio中用变量创建数组：</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> m,n;</span><br><span class="line">cin&gt;&gt;m&gt;&gt;n;</span><br><span class="line"><span class="keyword">int</span> *parr=<span class="keyword">new</span> <span class="keyword">int</span>[m];<span class="comment">//动态创建一维数组</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//动态创建二维数组</span></span><br><span class="line"><span class="keyword">int</span>** brr = <span class="keyword">new</span> <span class="keyword">int</span>*[m];<span class="comment">//先创建一维数组的个数（有几行）</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">&#123;</span><br><span class="line">	brr[i] = <span class="keyword">new</span> <span class="keyword">int</span>[n];<span class="comment">//再创建一维数组（对每行创建）</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>关于数组指针和sizeof的一些冷知识</strong></p>
+<p>1.数组名其实是一个指针，指向该数组的首地址，在数组名后面加 [下标] 相当于对该指针解一次引用。</p>
+<p>2.sizeof(数组的首地址),会求得<strong>数组的元素个数*4</strong>，sizeof(数组的地址)，会求得4。</p>
+<p>示例：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> brr[<span class="number">3</span>] = &#123; <span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span> &#125;;</span><br><span class="line">cout &lt;&lt; <span class="built_in"><span class="keyword">sizeof</span></span>(brr) &lt;&lt; <span class="string">&quot; &quot;</span>&lt;&lt;<span class="built_in"><span class="keyword">sizeof</span></span>(&amp;brr) &lt;&lt; endl;</span><br><span class="line">cout &lt;&lt; brr &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; &amp;brr &lt;&lt; endl;</span><br><span class="line"><span class="comment">//brr为数组的首地址，&amp;brr为数组的地址。</span></span><br><span class="line"></span><br><span class="line">cout &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> arr[<span class="number">3</span>][<span class="number">4</span>] = &#123;</span><br><span class="line">	<span class="number">0</span>,<span class="number">1</span>,<span class="number">16</span>,<span class="number">17</span>,</span><br><span class="line">	<span class="number">2</span>,<span class="number">3</span>,<span class="number">17</span>,<span class="number">18</span>,</span><br><span class="line">	<span class="number">19</span>,<span class="number">20</span>,<span class="number">21</span>,<span class="number">22</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">cout &lt;&lt; <span class="built_in"><span class="keyword">sizeof</span></span>(arr) &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; <span class="built_in"><span class="keyword">sizeof</span></span>(arr[<span class="number">1</span>]) &lt;&lt; endl;</span><br><span class="line">cout &lt;&lt; arr + <span class="number">1</span> &lt;&lt;<span class="string">&quot; &quot;</span> &lt;&lt; arr[<span class="number">1</span>] &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line"><span class="comment">//arr为二维数组的首地址，arr[1]为二维数组中一维数组（2，3，17，18）的首地址</span></span><br></pre></td></tr></table></figure>
+
+<p>运行结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">12 4</span><br><span class="line">00FDFDC8 00FDFDC8</span><br><span class="line"></span><br><span class="line">48 16</span><br><span class="line">00FDFDA0 00FDFDA0</span><br><span class="line">请按任意键继续. . .</span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">星辰微光</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://yasuoskywalker.github.io/2021/11/20/C++-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E6%8C%87%E9%92%882/">https://yasuoskywalker.github.io/2021/11/20/C++-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E6%8C%87%E9%92%882/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://yasuoskywalker.github.io" target="_blank">星辰微光的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/C/">C++</a><a class="post-meta__tags" href="/tags/%E6%8C%87%E9%92%88/">指针</a></div><div class="post_share"><div class="social-share" data-image="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/11/23/C++-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E5%87%BD%E6%95%B0%E7%9A%84%E9%BB%98%E8%AE%A4%E5%8F%82%E6%95%B0/"><img class="prev-cover" src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">C++学习记录-函数的默认参数</div></div></a></div><div class="next-post pull-right"><a href="/2021/11/18/C++-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E6%8C%87%E9%92%881/"><img class="next-cover" src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">C++学习记录-指针1</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/11/18/C++-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E6%8C%87%E9%92%881/" title="C++学习记录-指针1"><img class="cover" src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-11-18</div><div class="title">C++学习记录-指针1</div></div></a></div><div><a href="/2021/11/26/C++-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E5%AD%97%E7%AC%A6%E6%95%B0%E7%BB%84%E4%B8%8E%E6%8C%87%E9%92%88/" title="C++学习记录-字符数组与指针"><img class="cover" src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-11-26</div><div class="title">C++学习记录-字符数组与指针</div></div></a></div><div><a href="/2022/06/29/C++-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-STL-map%E5%92%8Cmultimap/" title="C++学习记录-STL-map和multimap"><img class="cover" src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-29</div><div class="title">C++学习记录-STL-map和multimap</div></div></a></div><div><a href="/2022/06/29/C++-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-STL-list/" title="C++学习记录-STL-list"><img class="cover" src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-29</div><div class="title">C++学习记录-STL-list</div></div></a></div><div><a href="/2022/06/29/C++-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-STL-set%E5%92%8Cmultiset/" title="C++学习记录-STL-set和multiset"><img class="cover" src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-29</div><div class="title">C++学习记录-STL-set和multiset</div></div></a></div><div><a href="/2022/01/22/C++-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-STL-stack/" title="C++学习记录-STL-stack"><img class="cover" src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-01-22</div><div class="title">C++学习记录-STL-stack</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://img.gejiba.com/images/a097a8cf503f870e9aad51dc0dff96b7.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">星辰微光</div><div class="author-info__description">星辰微光</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">193</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">25</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/06/23/Linux-Ch10/" title="Linux-Ch10"><img src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux-Ch10"/></a><div class="content"><a class="title" href="/2023/06/23/Linux-Ch10/" title="Linux-Ch10">Linux-Ch10</a><time datetime="2023-06-23T03:26:43.000Z" title="发表于 2023-06-23 11:26:43">2023-06-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/06/23/Linux-Ch09/" title="Linux-Ch09"><img src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux-Ch09"/></a><div class="content"><a class="title" href="/2023/06/23/Linux-Ch09/" title="Linux-Ch09">Linux-Ch09</a><time datetime="2023-06-23T01:43:20.000Z" title="发表于 2023-06-23 09:43:20">2023-06-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/06/22/Linux-Ch08/" title="Linux-Ch08"><img src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux-Ch08"/></a><div class="content"><a class="title" href="/2023/06/22/Linux-Ch08/" title="Linux-Ch08">Linux-Ch08</a><time datetime="2023-06-22T14:39:35.000Z" title="发表于 2023-06-22 22:39:35">2023-06-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/06/21/Linux-Ch07/" title="Linux-Ch07"><img src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux-Ch07"/></a><div class="content"><a class="title" href="/2023/06/21/Linux-Ch07/" title="Linux-Ch07">Linux-Ch07</a><time datetime="2023-06-21T14:30:30.000Z" title="发表于 2023-06-21 22:30:30">2023-06-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/06/21/Linux-Ch06/" title="Linux-Ch06"><img src="https://img.gejiba.com/images/3f4d698c0abc7dc509e59cdbcb827b88.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux-Ch06"/></a><div class="content"><a class="title" href="/2023/06/21/Linux-Ch06/" title="Linux-Ch06">Linux-Ch06</a><time datetime="2023-06-21T08:54:00.000Z" title="发表于 2023-06-21 16:54:00">2023-06-21</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By 星辰微光</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
