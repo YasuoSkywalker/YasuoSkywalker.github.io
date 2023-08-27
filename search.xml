@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Git-LFS管理大文件</title>
+      <link href="/2023/08/27/GitLFS%E7%AE%A1%E7%90%86%E5%A4%A7%E6%96%87%E4%BB%B6/"/>
+      <url>/2023/08/27/GitLFS%E7%AE%A1%E7%90%86%E5%A4%A7%E6%96%87%E4%BB%B6/</url>
+      
+      
+      <categories>
+          
+          <category> Unity学习记录 </category>
+          
+          <category> Git学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Unity </tag>
+            
+            <tag> Git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Unity鼠标手绘与程序化生成碰撞体</title>
       <link href="/2023/08/22/Unity%E9%BC%A0%E6%A0%87%E6%89%8B%E7%BB%98%E4%B8%8E%E7%A8%8B%E5%BA%8F%E5%8C%96%E7%94%9F%E6%88%90%E7%A2%B0%E6%92%9E%E4%BD%93/"/>
       <url>/2023/08/22/Unity%E9%BC%A0%E6%A0%87%E6%89%8B%E7%BB%98%E4%B8%8E%E7%A8%8B%E5%BA%8F%E5%8C%96%E7%94%9F%E6%88%90%E7%A2%B0%E6%92%9E%E4%BD%93/</url>
@@ -4824,9 +4851,9 @@
     
     
     <entry>
-      <title>categories</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
+      <title>Java学习记录</title>
+      <link href="/categories/Java%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/index.html"/>
+      <url>/categories/Java%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/index.html</url>
       
     </entry>
     
@@ -4851,27 +4878,9 @@
     
     
     <entry>
-      <title>Cpp学习记录</title>
-      <link href="/categories/Cpp%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/index.html"/>
-      <url>/categories/Cpp%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/index.html</url>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Java学习记录</title>
-      <link href="/categories/Java%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/index.html"/>
-      <url>/categories/Java%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/index.html</url>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Unity学习记录</title>
-      <link href="/categories/Unity%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/index.html"/>
-      <url>/categories/Unity%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/index.html</url>
+      <title>JavaWeb</title>
+      <link href="/categories/JavaWeb/index.html"/>
+      <url>/categories/JavaWeb/index.html</url>
       
     </entry>
     
@@ -4887,9 +4896,18 @@
     
     
     <entry>
-      <title>JavaWeb</title>
-      <link href="/categories/JavaWeb/index.html"/>
-      <url>/categories/JavaWeb/index.html</url>
+      <title>categories</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Unity学习记录</title>
+      <link href="/categories/Unity%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/index.html"/>
+      <url>/categories/Unity%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/index.html</url>
       
     </entry>
     
@@ -4899,6 +4917,24 @@
       <title>Git学习</title>
       <link href="/categories/Git%E5%AD%A6%E4%B9%A0/index.html"/>
       <url>/categories/Git%E5%AD%A6%E4%B9%A0/index.html</url>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Unity开发记录</title>
+      <link href="/categories/Unity%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95/index.html"/>
+      <url>/categories/Unity%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95/index.html</url>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Cpp学习记录</title>
+      <link href="/categories/Cpp%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/index.html"/>
+      <url>/categories/Cpp%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/index.html</url>
       
     </entry>
     
@@ -4923,9 +4959,9 @@
     
     
     <entry>
-      <title>Unity开发记录</title>
-      <link href="/categories/Unity%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95/index.html"/>
-      <url>/categories/Unity%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95/index.html</url>
+      <title>操作系统</title>
+      <link href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/index.html"/>
+      <url>/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/index.html</url>
       
     </entry>
     
@@ -4950,33 +4986,6 @@
     
     
     <entry>
-      <title>Linux</title>
-      <link href="/categories/Linux/index.html"/>
-      <url>/categories/Linux/index.html</url>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>游戏算法学习</title>
-      <link href="/categories/%E6%B8%B8%E6%88%8F%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/index.html"/>
-      <url>/categories/%E6%B8%B8%E6%88%8F%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/index.html</url>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>操作系统</title>
-      <link href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/index.html"/>
-      <url>/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/index.html</url>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>游戏开发杂项记录</title>
       <link href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E6%9D%82%E9%A1%B9%E8%AE%B0%E5%BD%95/index.html"/>
       <url>/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E6%9D%82%E9%A1%B9%E8%AE%B0%E5%BD%95/index.html</url>
@@ -4986,9 +4995,27 @@
     
     
     <entry>
+      <title>Linux</title>
+      <link href="/categories/Linux/index.html"/>
+      <url>/categories/Linux/index.html</url>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>行路杂谈</title>
       <link href="/categories/%E8%A1%8C%E8%B7%AF%E6%9D%82%E8%B0%88/index.html"/>
       <url>/categories/%E8%A1%8C%E8%B7%AF%E6%9D%82%E8%B0%88/index.html</url>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>游戏算法学习</title>
+      <link href="/categories/%E6%B8%B8%E6%88%8F%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/index.html"/>
+      <url>/categories/%E6%B8%B8%E6%88%8F%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/index.html</url>
       
     </entry>
     
