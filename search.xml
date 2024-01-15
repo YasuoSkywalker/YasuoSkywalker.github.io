@@ -4,6 +4,29 @@
   
     
     <entry>
+      <title>软件体系结构-原型模式</title>
+      <link href="/2024/01/15/%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/"/>
+      <url>/2024/01/15/%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F/</url>
+      
+      
+      <categories>
+          
+          <category> 软件体系结构 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 软件体系结构 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>软件体系结构-抽象工厂模式</title>
       <link href="/2024/01/15/%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/"/>
       <url>/2024/01/15/%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</url>
@@ -5316,6 +5339,15 @@
     
     
     <entry>
+      <title>categories</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>archives</title>
       <link href="/archives/index.html"/>
       <url>/archives/index.html</url>
@@ -5343,9 +5375,9 @@
     
     
     <entry>
-      <title>categories</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
+      <title>Cpp学习记录</title>
+      <link href="/categories/Cpp%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/index.html"/>
+      <url>/categories/Cpp%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/index.html</url>
       
     </entry>
     
@@ -5361,9 +5393,9 @@
     
     
     <entry>
-      <title>Cpp学习记录</title>
-      <link href="/categories/Cpp%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/index.html"/>
-      <url>/categories/Cpp%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/index.html</url>
+      <title>JavaWeb</title>
+      <link href="/categories/JavaWeb/index.html"/>
+      <url>/categories/JavaWeb/index.html</url>
       
     </entry>
     
@@ -5379,27 +5411,18 @@
     
     
     <entry>
-      <title>Java学习记录</title>
-      <link href="/categories/Java%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/index.html"/>
-      <url>/categories/Java%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/index.html</url>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>JavaWeb</title>
-      <link href="/categories/JavaWeb/index.html"/>
-      <url>/categories/JavaWeb/index.html</url>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Linux</title>
       <link href="/categories/Linux/index.html"/>
       <url>/categories/Linux/index.html</url>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Java学习记录</title>
+      <link href="/categories/Java%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/index.html"/>
+      <url>/categories/Java%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/index.html</url>
       
     </entry>
     
@@ -5424,27 +5447,18 @@
     
     
     <entry>
-      <title>操作系统</title>
-      <link href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/index.html"/>
-      <url>/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/index.html</url>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>数据结构与算法</title>
-      <link href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/index.html"/>
-      <url>/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/index.html</url>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>其他开发记录</title>
       <link href="/categories/%E5%85%B6%E4%BB%96%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95/index.html"/>
       <url>/categories/%E5%85%B6%E4%BB%96%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95/index.html</url>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>操作系统</title>
+      <link href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/index.html"/>
+      <url>/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/index.html</url>
       
     </entry>
     
@@ -5460,9 +5474,9 @@
     
     
     <entry>
-      <title>游戏开发杂项记录</title>
-      <link href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E6%9D%82%E9%A1%B9%E8%AE%B0%E5%BD%95/index.html"/>
-      <url>/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E6%9D%82%E9%A1%B9%E8%AE%B0%E5%BD%95/index.html</url>
+      <title>数据结构与算法</title>
+      <link href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/index.html"/>
+      <url>/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/index.html</url>
       
     </entry>
     
@@ -5478,9 +5492,9 @@
     
     
     <entry>
-      <title>行路杂谈</title>
-      <link href="/categories/%E8%A1%8C%E8%B7%AF%E6%9D%82%E8%B0%88/index.html"/>
-      <url>/categories/%E8%A1%8C%E8%B7%AF%E6%9D%82%E8%B0%88/index.html</url>
+      <title>游戏开发杂项记录</title>
+      <link href="/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E6%9D%82%E9%A1%B9%E8%AE%B0%E5%BD%95/index.html"/>
+      <url>/categories/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91%E6%9D%82%E9%A1%B9%E8%AE%B0%E5%BD%95/index.html</url>
       
     </entry>
     
@@ -5490,6 +5504,15 @@
       <title>游戏算法学习</title>
       <link href="/categories/%E6%B8%B8%E6%88%8F%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/index.html"/>
       <url>/categories/%E6%B8%B8%E6%88%8F%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/index.html</url>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>行路杂谈</title>
+      <link href="/categories/%E8%A1%8C%E8%B7%AF%E6%9D%82%E8%B0%88/index.html"/>
+      <url>/categories/%E8%A1%8C%E8%B7%AF%E6%9D%82%E8%B0%88/index.html</url>
       
     </entry>
     
